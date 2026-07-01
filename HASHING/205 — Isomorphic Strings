@@ -1,0 +1,848 @@
+# LeetCode #205 — Isomorphic Strings
+
+> **Difficulty:** Easy  
+> **Pattern:** One-to-One Mapping • Bi-Directional HashMap • Character Transformation  
+> **Companies:** Google, Amazon, Microsoft, Meta, Apple, Bloomberg, Adobe  
+> **Importance:** ⭐⭐⭐⭐⭐ (Core Character Mapping Pattern)
+
+---
+
+# Table of Contents
+
+- Problem Statement
+- Pattern Recognition
+- Why Frequency Counting Fails
+- Brute Force Idea
+- One HashMap Solution (Incorrect)
+- Correct Bi-Directional Mapping
+- Optimal Java Solution
+- Dry Run
+- Complexity Analysis
+- Common Mistakes
+- Edge Cases
+- Interview Follow-ups
+- Similar Problems
+
+---
+
+# Problem Statement
+
+Given two strings `s` and `t`, determine whether they are **isomorphic**.
+
+Two strings are isomorphic if characters in `s` can be replaced to get `t`.
+
+Rules:
+
+- Every character maps to exactly one character.
+- No two different characters may map to the same character.
+- A character may map to itself.
+
+---
+
+## Example 1
+
+```text
+Input
+
+s = "egg"
+
+t = "add"
+
+Output
+
+true
+```
+
+Mapping
+
+```text
+e → a
+
+g → d
+```
+
+---
+
+## Example 2
+
+```text
+Input
+
+s = "foo"
+
+t = "bar"
+
+Output
+
+false
+```
+
+Reason
+
+```text
+o
+
+↓
+
+a
+
+then
+
+↓
+
+r
+
+Impossible
+```
+
+---
+
+## Example 3
+
+```text
+Input
+
+s = "paper"
+
+t = "title"
+
+Output
+
+true
+```
+
+Mapping
+
+```text
+p → t
+
+a → i
+
+e → l
+
+r → e
+```
+
+---
+
+# Pattern Recognition
+
+Unlike **Valid Anagram**, counting frequencies is **not enough**.
+
+Consider
+
+```text
+ab
+
+cc
+```
+
+Frequency
+
+```text
+a = 1
+
+b = 1
+
+c = 2
+```
+
+Counts alone do not reveal the issue.
+
+The problem is that
+
+```text
+a → c
+
+b → c
+```
+
+Two characters map to the same destination.
+
+This violates the one-to-one mapping rule.
+
+---
+
+# Core Interview Insight
+
+This problem introduces a new hashing pattern:
+
+```text
+Character
+
+↓
+
+Mapped Character
+```
+
+Unlike frequency counting, we must remember relationships.
+
+Think:
+
+```text
+Dictionary
+```
+
+rather than
+
+```text
+Counter
+```
+
+---
+
+# Why One HashMap is Not Enough
+
+Suppose
+
+```text
+s = "ab"
+
+t = "cc"
+```
+
+If we only store
+
+```text
+a → c
+
+b → c
+```
+
+Nothing appears wrong.
+
+But
+
+```text
+c
+```
+
+is already used.
+
+Therefore,
+
+the mapping is invalid.
+
+---
+
+# Correct Approach
+
+We need two maps.
+
+```
+Forward
+
+a → c
+```
+
+and
+
+```
+Backward
+
+c → a
+```
+
+Both mappings must remain consistent.
+
+---
+
+Visualization
+
+```text
+Forward
+
+a → c
+
+b → d
+```
+
+---
+
+```text
+Backward
+
+c → a
+
+d → b
+```
+
+If either mapping conflicts,
+
+return
+
+```text
+false
+```
+
+---
+
+# Algorithm
+
+For every character
+
+```text
+Check forward mapping
+
+↓
+
+Check backward mapping
+
+↓
+
+Conflict?
+
+↓
+
+Return false
+
+↓
+
+Store mapping
+
+↓
+
+Continue
+```
+
+---
+
+# Production-Grade Java Solution
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+class Solution {
+
+    public boolean isIsomorphic(String s, String t) {
+
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        Map<Character, Character> forward = new HashMap<>();
+        Map<Character, Character> backward = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+
+            char a = s.charAt(i);
+            char b = t.charAt(i);
+
+            if (forward.containsKey(a)) {
+
+                if (forward.get(a) != b) {
+                    return false;
+                }
+
+            } else {
+
+                forward.put(a, b);
+
+            }
+
+            if (backward.containsKey(b)) {
+
+                if (backward.get(b) != a) {
+                    return false;
+                }
+
+            } else {
+
+                backward.put(b, a);
+
+            }
+
+        }
+
+        return true;
+    }
+}
+```
+
+---
+
+# Dry Run
+
+Input
+
+```text
+s = "paper"
+
+t = "title"
+```
+
+Initially
+
+```text
+Forward
+
+{}
+```
+
+```text
+Backward
+
+{}
+```
+
+---
+
+## Step 1
+
+```
+p
+
+↓
+
+t
+```
+
+Forward
+
+```text
+p → t
+```
+
+Backward
+
+```text
+t → p
+```
+
+---
+
+## Step 2
+
+```
+a
+
+↓
+
+i
+```
+
+Forward
+
+```text
+p → t
+
+a → i
+```
+
+Backward
+
+```text
+t → p
+
+i → a
+```
+
+---
+
+## Step 3
+
+```
+p
+
+↓
+
+t
+```
+
+Already exists.
+
+Mapping matches.
+
+Continue.
+
+---
+
+## Step 4
+
+```
+e
+
+↓
+
+l
+```
+
+Store.
+
+---
+
+## Step 5
+
+```
+r
+
+↓
+
+e
+```
+
+Store.
+
+Completed successfully.
+
+Return
+
+```text
+true
+```
+
+---
+
+# Failure Example
+
+Input
+
+```text
+s = "badc"
+
+t = "baba"
+```
+
+Process
+
+```text
+b → b
+
+OK
+```
+
+---
+
+Next
+
+```text
+a → a
+
+OK
+```
+
+---
+
+Next
+
+```text
+d → b
+```
+
+Backward map already contains
+
+```text
+b → b
+```
+
+Conflict detected.
+
+Return
+
+```text
+false
+```
+
+---
+
+# Visualization
+
+```text
+paper
+
+↓
+
+title
+
+p → t
+
+a → i
+
+p → t ✓
+
+e → l
+
+r → e
+
+↓
+
+No conflicts
+
+↓
+
+True
+```
+
+---
+
+# Complexity Analysis
+
+| Operation | Complexity |
+|-----------|------------|
+| Traversal | O(N) |
+| HashMap Lookup | O(1) Average |
+| HashMap Insert | O(1) Average |
+
+Overall
+
+```text
+Time
+
+O(N)
+```
+
+```text
+Space
+
+O(N)
+```
+
+---
+
+# Common Mistakes
+
+## Mistake 1
+
+Using only one HashMap.
+
+Fails on
+
+```text
+ab
+
+cc
+```
+
+---
+
+## Mistake 2
+
+Checking only the forward mapping.
+
+Always verify both directions.
+
+---
+
+## Mistake 3
+
+Comparing frequencies.
+
+Frequency equality does not guarantee a valid mapping.
+
+---
+
+## Mistake 4
+
+Ignoring string length.
+
+Always check
+
+```java
+if (s.length() != t.length())
+```
+
+first.
+
+---
+
+# Alternative Approach
+
+Since characters are ASCII,
+
+we can replace HashMaps with arrays.
+
+```java
+class Solution {
+
+    public boolean isIsomorphic(String s, String t) {
+
+        int[] mapS = new int[256];
+        int[] mapT = new int[256];
+
+        for (int i = 0; i < s.length(); i++) {
+
+            char a = s.charAt(i);
+            char b = t.charAt(i);
+
+            if (mapS[a] != mapT[b]) {
+                return false;
+            }
+
+            mapS[a] = i + 1;
+            mapT[b] = i + 1;
+        }
+
+        return true;
+    }
+}
+```
+
+### Why `i + 1`?
+
+Arrays are initialized with `0`.
+
+Using `i + 1` distinguishes "not seen" (`0`) from the first position (`1`).
+
+This is a common interview optimization.
+
+---
+
+# Edge Cases
+
+### Empty Strings
+
+```text
+s = ""
+
+t = ""
+
+↓
+
+true
+```
+
+---
+
+### Single Character
+
+```text
+a
+
+b
+
+↓
+
+true
+```
+
+---
+
+### Self Mapping
+
+```text
+abc
+
+abc
+
+↓
+
+true
+```
+
+---
+
+### Invalid Many-to-One Mapping
+
+```text
+ab
+
+aa
+
+↓
+
+false
+```
+
+---
+
+### Different Lengths
+
+```text
+abcd
+
+abc
+
+↓
+
+false
+```
+
+---
+
+# Interview Follow-ups
+
+## Q1. Why are two HashMaps needed?
+
+One ensures:
+
+```text
+s → t
+```
+
+The other ensures:
+
+```text
+t → s
+```
+
+Together they guarantee a **bijection** (one-to-one correspondence).
+
+---
+
+## Q2. Can we solve it with arrays?
+
+Yes.
+
+If the character set is limited (ASCII), arrays are faster than HashMaps.
+
+---
+
+## Q3. Which is better in interviews?
+
+- **HashMap**: Generic and works for Unicode.
+- **Array**: Faster when the character range is fixed.
+
+Mention both approaches to demonstrate depth.
+
+---
+
+# Pattern Recognition
+
+When the problem asks:
+
+- Replace characters
+- Character correspondence
+- Pattern matching
+- One-to-one mapping
+- Consistent transformation
+
+Think:
+
+```text
+Bi-Directional Mapping
+
+↓
+
+Two HashMaps
+```
+
+---
+
+# Similar LeetCode Problems
+
+| Problem | Pattern |
+|---------|---------|
+| 290. Word Pattern | Bi-directional Mapping |
+| 890. Find and Replace Pattern | Character Mapping |
+| 49. Group Anagrams | Frequency / Canonical Mapping |
+| 535. Encode and Decode TinyURL | Hash Mapping |
+| 205. Isomorphic Strings | Two HashMaps |
+
+---
+
+# Key Takeaways
+
+- Frequency counting solves **"how many?"**
+- Mapping solves **"who maps to whom?"**
+- One HashMap is insufficient for enforcing one-to-one mappings.
+- Two HashMaps (or two arrays for fixed alphabets) guarantee correctness.
+- This pattern is foundational for many medium-level string and dictionary problems.
+
+---
+
+## Next
+
+**LeetCode #383 – Ransom Note**
+
+The next problem combines **frequency counting** with **resource consumption**, introducing a reusable pattern that appears in magazine, inventory, multiset, and counting-based interview questions.
