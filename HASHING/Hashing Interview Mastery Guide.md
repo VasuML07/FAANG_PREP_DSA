@@ -876,88 +876,11 @@ HashMap / HashSet / Array
 ---
 
 *Continue with Problems 4–15 in the subsequent parts.*
-
-# Hashing Interview Mastery Guide (Java)
-
-> **FAANG Interview Preparation • Java • LeetCode • Beginner → Advanced**
->
-> This guide teaches hashing almost entirely through carefully selected LeetCode problems. Every important interview concept naturally appears while solving real interview questions rather than through isolated theory.
-
 ---
 
-# Table of Contents
+# Problem 4 — Intersection of Two Arrays
 
-## Easy
-
-| # | Problem | Difficulty | Technique |
-|---|----------|------------|-----------|
-|1|Two Sum|Easy|Complement HashMap|
-|2|Contains Duplicate|Easy|HashSet|
-|3|Valid Anagram|Easy|Frequency Counting|
-|4|Intersection of Two Arrays|Easy|HashSet Operations|
-|5|Isomorphic Strings|Easy|Bidirectional Character Mapping|
-
----
-
-## Medium
-
-|#|Problem|Technique|
-|---|---|---|
-|6|Group Anagrams|Grouping|
-|7|Top K Frequent Elements|Frequency + Bucket Sort|
-|8|Longest Consecutive Sequence|HashSet Expansion|
-|9|Subarray Sum Equals K|Prefix Sum + HashMap|
-|10|Longest Substring Without Repeating Characters|Sliding Window|
-
----
-
-## Hard
-
-|#|Problem|Technique|
-|---|---|---|
-|11|Minimum Window Substring|Advanced Sliding Window|
-|12|Substring with Concatenation of All Words|HashMap + Window|
-|13|Alien Dictionary|HashMap Graph|
-|14|Find All People With Secret|Hash Graph|
-|15|Longest Duplicate Substring|Rolling Hash|
-
----
-
-# Difficulty Progression
-
-```text
-Easy
-│
-├── HashSet
-├── HashMap
-├── Frequency Counting
-├── Character Mapping
-└── Set Operations
-        │
-        ▼
-Medium
-│
-├── Prefix Sum
-├── Sliding Window
-├── Grouping
-├── Frequency Buckets
-└── Sequence Detection
-        │
-        ▼
-Hard
-│
-├── Complex Windows
-├── Rolling Hash
-├── Graph Hashing
-├── Encoding
-└── Hybrid Algorithms
-```
-
----
-
-# Problem 1 — Two Sum
-
-**LeetCode:** 1
+**LeetCode:** 349
 
 **Difficulty:** Easy
 
@@ -968,486 +891,118 @@ Hard
 - Microsoft
 - Apple
 - Meta
-- Adobe
-- Uber
 
 ---
 
 ## Problem
 
-Given an integer array and a target, return indices of two numbers whose sum equals the target.
+Given two integer arrays `nums1` and `nums2`, return an array containing **only the unique elements** present in both arrays.
 
-```
-nums = [2,7,11,15]
+Example
 
-target = 9
+```text
+nums1 = [1,2,2,1]
+nums2 = [2,2]
 
-Answer
+Output
 
-[0,1]
+[2]
 ```
 
 ---
 
 # Interview Thought Process
 
-Most beginners immediately think:
-
-> Compare every pair.
-
-That works...
-
-But is it optimal?
-
-Suppose
+The brute-force solution compares every element of one array with every element of the other.
 
 ```
-100000 numbers
+for every x in nums1
+
+    for every y in nums2
+
+        if x==y
 ```
 
-Nested loops become very expensive.
+This works but repeatedly compares the same numbers.
 
 Instead ask
 
-> While looking at one number, can I instantly know whether its partner already exists?
+> Can membership be checked instantly?
 
-That is exactly what hashing provides.
+A HashSet provides average **O(1)** lookup.
 
 ---
 
 # Naive Approach
 
-For every element
+Nested loops
 
-Search every remaining element.
-
-```
-for i
-
-    for j
-
-        if nums[i]+nums[j]==target
-
-            return
-```
-
-Complexity
-
-```
-Time : O(n²)
+```text
+Time  : O(n × m)
 
 Space : O(1)
 ```
-
-Far too slow for interviews.
 
 ---
 
 # Better Observation
 
-Suppose current number is
+Store every element of the first array inside a HashSet.
 
-```
-7
-```
+Then scan the second array.
 
-Target
+Whenever an element already exists inside the set,
 
-```
-9
-```
+it belongs to the intersection.
 
-Instead of searching every number,
-
-calculate
-
-```
-needed = 9-7 = 2
-```
-
-Now only one question matters
-
-> Have we already seen 2?
-
-HashMap answers this in nearly constant time.
-
----
-
-# HashMap Visualization
-
-```
-Target = 9
-
-Array
-
-2   7   11   15
-
-Step 1
-
-Store
-
-2 -> index 0
-
-HashMap
-
-+-------+-------+
-| Key   | Value |
-+-------+-------+
-| 2     | 0     |
-+-------+-------+
-
-Step 2
-
-Current = 7
-
-Need = 2
-
-Lookup
-
-Found!
-
-Answer
-
-[0,1]
-```
-
----
-
-# Optimized Algorithm
-
-For each number
-
-```
-need = target-current
-
-if need exists
-
-    return answer
-
-store current
-```
-
----
-
-# Java Solution
-
-```java
-import java.util.HashMap;
-import java.util.Map;
-
-class Solution {
-
-    public int[] twoSum(int[] nums, int target) {
-
-        Map<Integer, Integer> map = new HashMap<>();
-
-        for (int i = 0; i < nums.length; i++) {
-
-            int complement = target - nums[i];
-
-            if (map.containsKey(complement)) {
-                return new int[]{map.get(complement), i};
-            }
-
-            map.put(nums[i], i);
-        }
-
-        return new int[0];
-    }
-}
-```
-
----
-
-# Execution Trace
-
-```
-nums
-
-[2,7,11,15]
-
-target
-
-9
-```
-
-|Step|Current|Need|HashMap|Action|
-|---|---|---|---|---|
-|1|2|7|{}|Store|
-|2|7|2|{2}|Found|
-|Done||||Return [0,1]|
-
----
-
-# Complexity
-
-```
-Time
-
-O(n)
-
-Space
-
-O(n)
-```
-
----
-
-# Why Hashing Wins
-
-Without hashing
-
-```
-Need
-
-search entire array
-```
-
-With hashing
-
-```
-Need
-
-direct lookup
-```
-
-Interview trick:
-
-Transform
-
-```
-Find pair
-```
-
-into
-
-```
-Find complement
-```
-
----
-
-# HashMap Internal Insight
-
-When storing
-
-```
-map.put(2,0)
-```
-
-Java computes
-
-```
-hash(2)
-```
-
-then chooses a bucket.
-
-```
-Bucket
-
-0
-
-1
-
-2 ---> (2,0)
-
-3
-
-4
-```
-
-Lookup repeats the same computation.
-
-Average lookup
-
-```
-O(1)
-```
-
-Worst case
-
-```
-O(n)
-```
-
-Modern Java converts long collision chains into Red-Black Trees, making worst-case lookups approximately **O(log n)** when many keys collide.
-
----
-
-# Common Pitfalls
-
-### Storing before checking
-
-Wrong
-
-```
-put()
-
-containsKey()
-```
-
-Fails when
-
-```
-target = 6
-
-nums=[3,3]
-```
-
-Always
-
-```
-Check
-
-↓
-
-Store
-```
-
----
-
-### Returning values instead of indices
-
-Question asks
-
-```
-indices
-```
-
-not
-
-```
-numbers
-```
-
----
-
-### Forgetting duplicates
-
-HashMap naturally handles duplicates correctly when implemented in the proper order.
-
----
-
-# Interview Variations
-
-- Two Sum II (sorted array)
-- Two Sum BST
-- Two Sum Data Structure
-- 3Sum
-- 4Sum
-
----
-
-# Pattern Learned
-
-```
-Complement Hashing
-```
-
-Whenever interview asks
-
-```
-Find two values
-```
-
-think
-
-```
-Need = Target - Current
-```
-
----
-
----
-
-# Problem 2 — Contains Duplicate
-
-**LeetCode:** 217
-
-**Difficulty:** Easy
-
-**Companies**
-
-- Amazon
-- Microsoft
-- Meta
-- Apple
-
----
-
-# Problem
-
-Return true if any value appears at least twice.
-
-Example
-
-```
-[1,2,3,1]
-
-True
-```
-
----
-
-# Observation
-
-Question is equivalent to
-
-> Have I already seen this number?
-
-Perfect HashSet problem.
-
----
-
-# Naive
-
-Compare every pair.
-
-```
-O(n²)
-```
-
----
-
-# Better Approach
-
-Maintain a HashSet.
-
-If current value already exists,
-
-duplicate found.
+A second HashSet guarantees uniqueness.
 
 ---
 
 # Visualization
 
 ```
-Array
+nums1
 
-1 2 3 1
-
-Set
-
-{}
+1 2 2 1
 
 ↓
 
-{1}
-
-↓
+HashSet
 
 {1,2}
 
+nums2
+
+2
+
 ↓
 
-{1,2,3}
+Found
 
-↓
+Answer Set
 
-1 already exists
+{2}
+```
 
-Return true
+---
+
+# Algorithm
+
+```
+Create set1
+
+Insert every number of nums1
+
+Create answerSet
+
+For every number in nums2
+
+    if exists in set1
+
+        add to answerSet
+
+Convert answerSet into array
 ```
 
 ---
@@ -1460,20 +1015,461 @@ import java.util.Set;
 
 class Solution {
 
-    public boolean containsDuplicate(int[] nums) {
+    public int[] intersection(int[] nums1, int[] nums2) {
 
-        Set<Integer> seen = new HashSet<>();
+        Set<Integer> first = new HashSet<>();
 
-        for (int num : nums) {
+        for (int num : nums1) {
+            first.add(num);
+        }
 
-            if (!seen.add(num)) {
-                return true;
+        Set<Integer> answer = new HashSet<>();
+
+        for (int num : nums2) {
+
+            if (first.contains(num)) {
+                answer.add(num);
             }
         }
 
-        return false;
+        int[] result = new int[answer.size()];
+        int index = 0;
+
+        for (int num : answer) {
+            result[index++] = num;
+        }
+
+        return result;
     }
 }
+```
+
+---
+
+# Execution Trace
+
+```
+nums1
+
+[1,2,2,1]
+
+nums2
+
+[2,2]
+```
+
+|Step|Current|Set1|Answer|
+|---|---|---|---|
+|Insert|1|{1}|{}|
+|Insert|2|{1,2}|{}|
+|Scan|2|{1,2}|{2}|
+|Scan|2|{1,2}|{2}|
+
+Return
+
+```
+[2]
+```
+
+---
+
+# Complexity
+
+```
+Time
+
+O(n+m)
+
+Space
+
+O(n)
+```
+
+---
+
+# Why Hashing?
+
+Without hashing
+
+```
+Need membership test
+
+↓
+
+Linear search
+```
+
+With HashSet
+
+```
+Membership
+
+↓
+
+Constant average lookup
+```
+
+---
+
+# HashSet Internal Insight
+
+When inserting
+
+```
+2
+```
+
+Java computes
+
+```
+hashCode()
+
+↓
+
+bucket index
+```
+
+Conceptually
+
+```
+Bucket 0
+
+Bucket 1
+
+Bucket 2 ---> 2
+
+Bucket 3
+```
+
+The second occurrence of
+
+```
+2
+```
+
+is ignored because sets do not allow duplicates.
+
+---
+
+# Common Pitfalls
+
+### Forgetting uniqueness
+
+Many candidates return
+
+```
+[2,2]
+```
+
+instead of
+
+```
+[2]
+```
+
+---
+
+### Using ArrayList
+
+Checking
+
+```
+contains()
+```
+
+inside an ArrayList takes
+
+```
+O(n)
+```
+
+HashSet provides
+
+```
+O(1)
+```
+
+average lookup.
+
+---
+
+### Sorting unnecessarily
+
+Sorting both arrays gives
+
+```
+O(n log n)
+```
+
+which is slower than hashing.
+
+---
+
+# Interview Variations
+
+- Intersection of Two Arrays II
+- Union of Two Arrays
+- Common Elements in K Arrays
+- Distinct Common Characters
+
+---
+
+# Pattern Learned
+
+```text
+Membership Checking
+
+↓
+
+HashSet
+```
+
+---
+
+---
+
+# Problem 5 — Isomorphic Strings
+
+**LeetCode:** 205
+
+**Difficulty:** Easy
+
+**Companies**
+
+- Google
+- Meta
+- Microsoft
+- Amazon
+- Bloomberg
+
+---
+
+## Problem
+
+Two strings are **isomorphic** if characters from one string can be replaced to obtain the other string.
+
+Rules
+
+- Every character maps to exactly one character.
+- No two characters map to the same character.
+
+Example
+
+```text
+s = "egg"
+
+t = "add"
+
+Output
+
+true
+```
+
+Example
+
+```text
+s = "foo"
+
+t = "bar"
+
+Output
+
+false
+```
+
+---
+
+# Interview Thought Process
+
+Many people only think about
+
+```
+a → x
+```
+
+But interviews often hide the real constraint.
+
+The mapping must also be unique.
+
+```
+a → x
+
+b → x
+```
+
+is illegal.
+
+Therefore we must verify **both directions**.
+
+---
+
+# Naive Idea
+
+Store only
+
+```
+s → t
+```
+
+mapping.
+
+Fails for
+
+```
+ab
+
+cc
+```
+
+because
+
+```
+a→c
+
+b→c
+```
+
+looks valid from one direction.
+
+---
+
+# Better Observation
+
+Maintain two HashMaps.
+
+```
+Forward
+
+s → t
+
+Backward
+
+t → s
+```
+
+Every mapping must agree in both directions.
+
+---
+
+# Visualization
+
+```
+egg
+
+↓
+
+add
+
+
+Map 1
+
+e -> a
+
+g -> d
+
+
+Map 2
+
+a -> e
+
+d -> g
+```
+
+Everything matches.
+
+Answer
+
+```
+true
+```
+
+---
+
+# Algorithm
+
+For every character position
+
+```
+Check forward mapping
+
+Check backward mapping
+
+If conflict
+
+return false
+
+Else
+
+store mapping
+```
+
+---
+
+# Java Solution
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+class Solution {
+
+    public boolean isIsomorphic(String s, String t) {
+
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        Map<Character, Character> forward = new HashMap<>();
+        Map<Character, Character> backward = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+
+            char c1 = s.charAt(i);
+            char c2 = t.charAt(i);
+
+            if (forward.containsKey(c1) &&
+                forward.get(c1) != c2) {
+                return false;
+            }
+
+            if (backward.containsKey(c2) &&
+                backward.get(c2) != c1) {
+                return false;
+            }
+
+            forward.put(c1, c2);
+            backward.put(c2, c1);
+        }
+
+        return true;
+    }
+}
+```
+
+---
+
+# Execution Trace
+
+```
+s
+
+egg
+
+t
+
+add
+```
+
+|Index|Character s|Character t|Forward|Backward|
+|---|---|---|---|---|
+|0|e|a|e→a|a→e|
+|1|g|d|g→d|d→g|
+|2|g|d|Already Valid|Already Valid|
+
+Answer
+
+```
+true
 ```
 
 ---
@@ -1487,274 +1483,193 @@ O(n)
 
 Space
 
-O(n)
+O(k)
+
+k = distinct characters
 ```
 
 ---
 
-# Why HashSet Instead of HashMap?
+# Why Hashing?
 
-We only care
+Each character mapping is checked in constant average time.
 
-```
-Exists?
+Without hashing,
 
-Yes
-
-No
-```
-
-No associated value needed.
-
-HashSet is simpler and slightly more memory efficient.
+searching previous mappings repeatedly would require linear scans.
 
 ---
 
-# Execution Trace
+# HashMap Concept Introduced
 
-|Current|Set|Result|
-|---|---|---|
-|1|{1}|Continue|
-|2|{1,2}|Continue|
-|3|{1,2,3}|Continue|
-|1|Already Exists|True|
+Unlike a HashSet,
 
----
-
-# HashSet Internal Detail
-
-Internally,
-
-Java HashSet is backed by a HashMap.
-
-Conceptually
+a HashMap stores
 
 ```
-HashSet
+Key
 
 ↓
 
-HashMap
-
-Key = number
-
-Value = dummy object
+Value
 ```
 
-Therefore
+Example
 
 ```
-contains()
+e
 
-add()
+↓
 
-remove()
+a
 ```
 
-are all average
+Internally
 
 ```
-O(1)
+Bucket
+
+↓
+
+Entry
+
+↓
+
+Key
+
+↓
+
+Value
+```
+
+Multiple entries may share a bucket due to collisions.
+
+Modern Java handles heavy collisions efficiently using balanced trees after a threshold is reached.
+
+---
+
+# Common Pitfalls
+
+### Using one HashMap only
+
+Fails for
+
+```
+ab
+
+cc
 ```
 
 ---
 
-# Pitfalls
+### Comparing with == on String
 
-- Sorting first gives O(n log n), which is unnecessary.
-- Using a List results in O(n²) due to linear search.
+Always use
+
+```java
+equals()
+```
+
+for Strings.
+
+Character primitives are safe with `==`.
+
+---
+
+### Forgetting equal lengths
+
+Different lengths can never be isomorphic.
+
+---
+
+# Edge Cases
+
+```
+s = ""
+
+t = ""
+
+true
+```
+
+---
+
+```
+s = "aa"
+
+t = "ab"
+
+false
+```
+
+---
+
+```
+s = "paper"
+
+t = "title"
+
+true
+```
+
+---
+
+```
+s = "badc"
+
+t = "baba"
+
+false
+```
+
+---
+
+# Interview Variations
+
+- Word Pattern
+- Isomorphic Arrays
+- Custom Character Encoding
+- One-to-One Mapping Problems
 
 ---
 
 # Pattern Learned
 
-```
-Duplicate Detection
+```text
+Bidirectional Mapping
 
 ↓
 
-HashSet
+Two HashMaps
 ```
 
 ---
 
-# Problem 3 — Valid Anagram
+# Easy Difficulty Summary
 
-**LeetCode:** 242
-
-**Difficulty:** Easy
-
-**Companies**
-
-- Google
-- Amazon
-- Microsoft
-- Meta
+| Problem | Core Pattern | Primary Data Structure | Time | Space |
+|---------|--------------|------------------------|------|-------|
+| Two Sum | Complement Lookup | HashMap | O(n) | O(n) |
+| Contains Duplicate | Duplicate Detection | HashSet | O(n) | O(n) |
+| Valid Anagram | Frequency Counting | HashMap | O(n) | O(k) |
+| Intersection of Two Arrays | Membership Testing | HashSet | O(n+m) | O(n) |
+| Isomorphic Strings | Bidirectional Mapping | Two HashMaps | O(n) | O(k) |
 
 ---
 
-## Problem
+# Easy-Level Interview Checklist
 
-Given two strings `s` and `t`, determine whether `t` is an anagram of `s`.
+By this point you should recognize these five fundamental hashing patterns immediately:
 
-Example:
+| Pattern | Typical Interview Clue |
+|----------|------------------------|
+| Complement Hashing | "Find two numbers..." |
+| Duplicate Detection | "Does any element repeat?" |
+| Frequency Counting | "Count occurrences..." |
+| Membership Testing | "Exists?" / "Common elements?" |
+| Character Mapping | "Replace or transform characters..." |
 
-```text
-s = "anagram"
-t = "nagaram"
-
-Output: true
-```
-
----
-
-## Observation
-
-Two strings are anagrams if:
-
-- They contain exactly the same characters.
-- Each character appears the same number of times.
-
-Instead of comparing positions, compare **frequencies**.
-
-This introduces one of the most important hashing patterns:
-
-> Frequency Counting
-
----
-
-## Naive Approach
-
-Sort both strings.
-
-```text
-"anagram"
-
-↓
-
-"aaagmnr"
-
-"nagaram"
-
-↓
-
-"aaagmnr"
-```
-
-Compare.
-
-### Complexity
-
-```text
-Time : O(n log n)
-
-Space : O(1) / O(n)
-```
-
----
-
-## Optimized Approach
-
-Use a HashMap (or array for lowercase English letters).
-
-Count characters in `s`, then subtract counts using `t`.
-
-If every count becomes zero, they are anagrams.
-
----
-
-## Java Solution (HashMap)
-
-```java
-import java.util.HashMap;
-import java.util.Map;
-
-class Solution {
-
-    public boolean isAnagram(String s, String t) {
-
-        if (s.length() != t.length()) {
-            return false;
-        }
-
-        Map<Character, Integer> freq = new HashMap<>();
-
-        for (char c : s.toCharArray()) {
-            freq.put(c, freq.getOrDefault(c, 0) + 1);
-        }
-
-        for (char c : t.toCharArray()) {
-
-            if (!freq.containsKey(c)) {
-                return false;
-            }
-
-            freq.put(c, freq.get(c) - 1);
-
-            if (freq.get(c) == 0) {
-                freq.remove(c);
-            }
-        }
-
-        return freq.isEmpty();
-    }
-}
-```
-
----
-
-## Execution Trace
-
-|Step|Character|HashMap|
-|---|---|---|
-|Read s|a|{a=1}|
-|Read s|n|{a=1,n=1}|
-|...|...|...|
-|Read t|n|Decrease|
-|Read t|a|Decrease|
-|End|—|Empty Map|
-
----
-
-## Complexity
-
-```text
-Time : O(n)
-
-Space : O(k)
-
-k = unique characters
-```
-
----
-
-## Why Hashing?
-
-Hashing lets us track frequencies in constant average time per character, avoiding sorting.
-
----
-
-## Common Pitfalls
-
-- Forgetting to compare lengths first.
-- Allowing negative counts.
-- Not removing zero-frequency entries when using a HashMap.
-
----
-
-## Pattern Learned
-
-```text
-Frequency Counting
-
-↓
-
-HashMap / HashSet / Array
-```
-
----
-
-*Continue with Problems 4–15 in the subsequent parts.*
+These five patterns form the foundation for almost every medium-level hashing problem. The next section builds directly on them with grouping, prefix sums, sliding windows, and sequence detection.
 
 # Medium Problems
 
@@ -2614,7 +2529,7 @@ The next section continues with two of the most important FAANG hashing patterns
 - **Problem 9:** Prefix Sum + HashMap (`Subarray Sum Equals K`)
 - **Problem 10:** Sliding Window + HashMap (`Longest Substring Without Repeating Characters`)
 
----
+- ---
 
 # Problem 9 — Subarray Sum Equals K
 
@@ -5433,3 +5348,5 @@ Repeated Substrings?
 ---
 
 **End of Guide**
+
+
