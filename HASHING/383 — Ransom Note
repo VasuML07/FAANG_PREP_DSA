@@ -1,0 +1,900 @@
+# LeetCode #383 — Ransom Note
+
+> **Difficulty:** Easy  
+> **Pattern:** Frequency Counting • Resource Consumption • Character Availability  
+> **Companies:** Amazon, Meta, Microsoft, Google, Apple, Bloomberg  
+> **Importance:** ⭐⭐⭐⭐⭐ (Core Frequency Counting Pattern)
+
+---
+
+# Table of Contents
+
+- Problem Statement
+- Pattern Recognition
+- Brute Force Solution
+- Optimal Frequency Counting Solution
+- HashMap Solution
+- Array Solution (Interview Preferred)
+- Dry Run
+- Complexity Analysis
+- Common Mistakes
+- Edge Cases
+- Interview Follow-ups
+- Similar Problems
+
+---
+
+# Problem Statement
+
+Given two strings:
+
+- `ransomNote`
+- `magazine`
+
+Return **true** if you can construct `ransomNote` using the characters in `magazine`.
+
+Each character in `magazine` may only be used **once**.
+
+---
+
+## Example 1
+
+```text
+Input
+
+ransomNote = "a"
+
+magazine = "b"
+
+Output
+
+false
+```
+
+---
+
+## Example 2
+
+```text
+Input
+
+ransomNote = "aa"
+
+magazine = "ab"
+
+Output
+
+false
+```
+
+---
+
+## Example 3
+
+```text
+Input
+
+ransomNote = "aa"
+
+magazine = "aab"
+
+Output
+
+true
+```
+
+---
+
+# Pattern Recognition
+
+This is another **Frequency Counting** problem.
+
+Unlike **Valid Anagram**, the frequencies do **not** have to match exactly.
+
+Instead, we ask:
+
+```text
+Does the magazine contain
+at least as many occurrences
+of each character
+as the ransom note requires?
+```
+
+Think of each character as a limited resource.
+
+```
+Magazine
+
+↓
+
+Character Inventory
+
+↓
+
+Consume Characters
+
+↓
+
+Inventory Never Negative?
+
+↓
+
+YES → Possible
+
+NO → Impossible
+```
+
+---
+
+# Key Observation
+
+Example
+
+```text
+Magazine
+
+banana
+```
+
+Inventory
+
+```text
+a → 3
+
+b → 1
+
+n → 2
+```
+
+Need
+
+```text
+banana
+```
+
+Consume
+
+```text
+b--
+
+a--
+
+n--
+
+a--
+
+n--
+
+a--
+```
+
+Final inventory
+
+```text
+a → 0
+
+b → 0
+
+n → 0
+```
+
+Everything required was available.
+
+---
+
+Now consider
+
+```text
+Magazine
+
+abc
+```
+
+Need
+
+```text
+aabc
+```
+
+Inventory
+
+```text
+a → 1
+
+Need
+
+a → 2
+```
+
+Impossible.
+
+---
+
+# Brute Force Solution
+
+For every character in the ransom note:
+
+Search the magazine.
+
+When found,
+
+mark that character as used.
+
+Repeat.
+
+---
+
+## Java Code
+
+```java
+class Solution {
+
+    public boolean canConstruct(String ransomNote, String magazine) {
+
+        boolean[] used = new boolean[magazine.length()];
+
+        for (int i = 0; i < ransomNote.length(); i++) {
+
+            boolean found = false;
+
+            for (int j = 0; j < magazine.length(); j++) {
+
+                if (!used[j] &&
+                    ransomNote.charAt(i) == magazine.charAt(j)) {
+
+                    used[j] = true;
+                    found = true;
+                    break;
+                }
+
+            }
+
+            if (!found) {
+                return false;
+            }
+
+        }
+
+        return true;
+    }
+}
+```
+
+---
+
+## Complexity
+
+| Time | Space |
+|------|-------|
+| O(M × N) | O(N) |
+
+Too slow.
+
+---
+
+# Better Idea
+
+Instead of repeatedly searching the magazine,
+
+count everything once.
+
+```
+Magazine
+
+↓
+
+Frequency Table
+
+↓
+
+Consume Needed Characters
+
+↓
+
+Finished
+```
+
+---
+
+# HashMap Solution
+
+## Algorithm
+
+```
+Count magazine characters
+
+↓
+
+Read ransom note
+
+↓
+
+Decrease frequency
+
+↓
+
+Frequency < 0 ?
+
+↓
+
+Impossible
+```
+
+---
+
+## Java Code
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+class Solution {
+
+    public boolean canConstruct(String ransomNote, String magazine) {
+
+        Map<Character, Integer> freq = new HashMap<>();
+
+        for (char ch : magazine.toCharArray()) {
+            freq.put(ch, freq.getOrDefault(ch, 0) + 1);
+        }
+
+        for (char ch : ransomNote.toCharArray()) {
+
+            if (!freq.containsKey(ch)) {
+                return false;
+            }
+
+            freq.put(ch, freq.get(ch) - 1);
+
+            if (freq.get(ch) < 0) {
+                return false;
+            }
+
+        }
+
+        return true;
+    }
+}
+```
+
+---
+
+# Interview Optimization
+
+The problem states
+
+```text
+Only lowercase English letters.
+```
+
+Therefore,
+
+a HashMap is unnecessary.
+
+A frequency array is both faster and simpler.
+
+---
+
+# Optimal Java Solution (Preferred)
+
+```java
+class Solution {
+
+    public boolean canConstruct(String ransomNote, String magazine) {
+
+        int[] count = new int[26];
+
+        for (char ch : magazine.toCharArray()) {
+            count[ch - 'a']++;
+        }
+
+        for (char ch : ransomNote.toCharArray()) {
+
+            count[ch - 'a']--;
+
+            if (count[ch - 'a'] < 0) {
+                return false;
+            }
+
+        }
+
+        return true;
+    }
+}
+```
+
+This is the solution expected by most interviewers.
+
+---
+
+# Dry Run
+
+Input
+
+```text
+ransomNote = "aa"
+
+magazine = "aab"
+```
+
+Frequency table after processing magazine
+
+```text
+a → 2
+
+b → 1
+```
+
+---
+
+Need first
+
+```text
+a
+```
+
+Consume
+
+```text
+a → 1
+```
+
+---
+
+Need second
+
+```text
+a
+```
+
+Consume
+
+```text
+a → 0
+```
+
+Finished.
+
+Return
+
+```text
+true
+```
+
+---
+
+## Failure Example
+
+Input
+
+```text
+ransomNote = "aaa"
+
+magazine = "aa"
+```
+
+Inventory
+
+```text
+a → 2
+```
+
+Need
+
+```
+a
+
+↓
+
+1
+
+↓
+
+0
+
+↓
+
+-1
+```
+
+Inventory became negative.
+
+Immediately return
+
+```text
+false
+```
+
+---
+
+# Visualization
+
+```text
+Magazine
+
+aab
+
+↓
+
+Frequency
+
+a → 2
+
+b → 1
+
+↓
+
+Need
+
+aa
+
+↓
+
+Consume
+
+a → 1
+
+↓
+
+Consume
+
+a → 0
+
+↓
+
+Possible
+```
+
+---
+
+# Why Do We Check for Negative Counts?
+
+A negative count means
+
+```
+Need
+
+>
+
+Available
+```
+
+Example
+
+```
+Magazine
+
+ab
+```
+
+Need
+
+```
+abb
+```
+
+Process
+
+```
+a
+
+↓
+
+1→0
+```
+
+```
+b
+
+↓
+
+1→0
+```
+
+```
+b
+
+↓
+
+0→-1
+```
+
+Negative inventory means the required character no longer exists.
+
+---
+
+# Complexity Analysis
+
+## Array Solution
+
+| Operation | Complexity |
+|-----------|------------|
+| Count Magazine | O(M) |
+| Consume Characters | O(N) |
+
+Overall
+
+```text
+Time
+
+O(M + N)
+```
+
+```text
+Space
+
+O(1)
+```
+
+Because the array size is fixed at 26.
+
+---
+
+## HashMap Solution
+
+| Time | Space |
+|------|-------|
+| O(M + N) | O(K) |
+
+Where `K` is the number of distinct characters.
+
+---
+
+# Common Mistakes
+
+## Mistake 1
+
+Building frequencies from the ransom note first.
+
+The magazine is the resource.
+
+Always count the available characters.
+
+---
+
+## Mistake 2
+
+Checking only character existence.
+
+Wrong
+
+```text
+Magazine
+
+ab
+```
+
+Need
+
+```text
+abb
+```
+
+Character
+
+```
+b
+```
+
+exists,
+
+but not enough times.
+
+Frequencies matter.
+
+---
+
+## Mistake 3
+
+Waiting until the end to detect failure.
+
+Instead,
+
+return immediately when a count becomes negative.
+
+This avoids unnecessary work.
+
+---
+
+# Edge Cases
+
+### Empty Ransom Note
+
+```text
+ransomNote = ""
+
+magazine = "abc"
+
+↓
+
+true
+```
+
+No characters are required.
+
+---
+
+### Empty Magazine
+
+```text
+ransomNote = "a"
+
+magazine = ""
+
+↓
+
+false
+```
+
+---
+
+### Exact Match
+
+```text
+abc
+
+abc
+
+↓
+
+true
+```
+
+---
+
+### Magazine Has Extra Characters
+
+```text
+abc
+
+abcxyz
+
+↓
+
+true
+```
+
+Extra characters are harmless.
+
+---
+
+### Repeated Characters
+
+```text
+Need
+
+aaaa
+```
+
+Magazine
+
+```text
+aaa
+```
+
+↓
+
+False
+
+---
+
+# Interview Follow-ups
+
+## Q1. Why is an array preferred over HashMap?
+
+Because:
+
+- Character range is fixed.
+- Array indexing is faster.
+- Less memory overhead.
+- No hashing or collision handling.
+
+---
+
+## Q2. What if the strings contain Unicode?
+
+The array approach no longer works.
+
+Use:
+
+```java
+HashMap<Character, Integer>
+```
+
+---
+
+## Q3. Can this be solved by sorting?
+
+Yes.
+
+Sort both strings and compare using two pointers.
+
+Complexity
+
+```text
+O(N log N)
+```
+
+The frequency approach is faster.
+
+---
+
+## Q4. What interview pattern does this teach?
+
+**Resource Consumption**
+
+```
+Build Inventory
+
+↓
+
+Consume Inventory
+
+↓
+
+Inventory Negative?
+
+↓
+
+Impossible
+```
+
+This pattern appears frequently in scheduling, inventory, multiset, and greedy problems.
+
+---
+
+# Pattern Recognition
+
+When a problem asks:
+
+- Can we build one object from another?
+- Do we have enough resources?
+- Is the inventory sufficient?
+- Consume characters/items.
+- Count available versus required.
+
+Think:
+
+```text
+Frequency Counting
+
+↓
+
+Consume Resources
+
+↓
+
+Detect Negative Counts
+```
+
+---
+
+# Similar LeetCode Problems
+
+| Problem | Pattern |
+|---------|---------|
+| 242. Valid Anagram | Frequency Counting |
+| 49. Group Anagrams | Frequency Signatures |
+| 438. Find All Anagrams in a String | Sliding Window + Frequency |
+| 567. Permutation in String | Sliding Window + Frequency |
+| 451. Sort Characters by Frequency | Frequency Map |
+| 692. Top K Frequent Words | Frequency + Heap |
+| 383. Ransom Note | Resource Consumption |
+
+---
+
+# Key Takeaways
+
+- Count the **available resources**, not the required ones.
+- Consume resources as you process the target.
+- A **negative frequency** immediately proves construction is impossible.
+- For a fixed alphabet, use an **array** instead of a `HashMap`.
+- This inventory-consumption pattern is widely used in interview problems involving counts, supplies, and multisets.
+
+---
+
+## Next
+
+**LeetCode #771 – Jewels and Stones**
+
+This problem introduces the **HashSet Membership** pattern, showing how to optimize repeated membership checks from **O(N²)** to **O(N)** using a set.
