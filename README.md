@@ -164,8 +164,8 @@ Trees are hierarchical data structures that form the foundation of many intervie
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [ ] | 1 | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) |
-| - [ ] | 2 | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) |
+| - [y] | 1 | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) |
+| - [y] | 2 | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) |
 | - [ ] | 3 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) |
 | - [ ] | 4 | [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) |
 | - [ ] | 5 | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) |
