@@ -190,8 +190,8 @@ Heap (Priority Queue) is a specialized data structure for efficiently retrieving
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [ ] | 1 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) |
-| - [ ] | 2 | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) |
+| - [y] | 1 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) |
+| - [y] | 2 | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) |
 | - [ ] | 3 | [The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/) |
 | - [ ] | 4 | [Relative Ranks](https://leetcode.com/problems/relative-ranks/) |
 | - [ ] | 5 | [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) |
