@@ -216,9 +216,9 @@ Backtracking is a recursive problem-solving technique that explores all possible
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [ ] | 1 | [Permutations](https://leetcode.com/problems/permutations/) |
-| - [ ] | 2 | [Subsets](https://leetcode.com/problems/subsets/) |
-| - [ ] | 3 | [Combinations](https://leetcode.com/problems/combinations/) |
+| - [y] | 1 | [Permutations](https://leetcode.com/problems/permutations/) |
+| - [y] | 2 | [Subsets](https://leetcode.com/problems/subsets/) |
+| - [y] | 3 | [Combinations](https://leetcode.com/problems/combinations/) |
 | - [ ] | 4 | [Combination Sum](https://leetcode.com/problems/combination-sum/) |
 | - [ ] | 5 | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) |
 | - [ ] | 6 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) |
