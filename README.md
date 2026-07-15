@@ -63,8 +63,8 @@ Sliding Window is an optimization technique for efficiently processing contiguou
 | - [y] | 1 | [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/) |
 | - [y] | 2 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) |
 | - [y] | 3 | [Permutation in String](https://leetcode.com/problems/permutation-in-string/) |
-| - [ ] | 4 | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) |
-| - [ ] | 5 | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) |
+| - [y] | 4 | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) |
+| - [y] | 5 | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) |
 | - [ ] | 6 | [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/) |
 | - [ ] | 7 | [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/) |
 | - [ ] | 8 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) |
