@@ -417,7 +417,34 @@ Bit Manipulation uses binary operations such as AND, OR, XOR, NOT, and bit shift
 | - [ ] | 15 | [Maximum XOR With an Element From Array](https://leetcode.com/problems/maximum-xor-with-an-element-from-array/) |
 
 
----
+# Greedy
+
+## README
+
+Greedy Algorithms build solutions by making the best local choice at every step, with the hope that these choices lead to a globally optimal solution. They are commonly used in interval scheduling, resource allocation, sorting-based optimization, priority queue problems, and exchange-argument proofs. Recognizing when the greedy-choice property and optimal substructure hold is essential for solving many FAANG interview problems.
+
+## Progress Tracker
+
+| Status | # | LeetCode Problem |
+|--------|---|------------------|
+| - [ ] | 1 | [Assign Cookies](https://leetcode.com/problems/assign-cookies/) |
+| - [ ] | 2 | [Can Place Flowers](https://leetcode.com/problems/can-place-flowers/) |
+| - [ ] | 3 | [Lemonade Change](https://leetcode.com/problems/lemonade-change/) |
+| - [ ] | 4 | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) |
+| - [ ] | 5 | [Gas Station](https://leetcode.com/problems/gas-station/) |
+| - [ ] | 6 | [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) |
+| - [ ] | 7 | [Maximize Sum Of Array After K Negations](https://leetcode.com/problems/maximize-sum-of-array-after-k-negations/) |
+| - [ ] | 8 | [Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck/) |
+| - [ ] | 9 | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) |
+| - [ ] | 10 | [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) |
+| - [ ] | 11 | [Maximum Length of Pair Chain](https://leetcode.com/problems/maximum-length-of-pair-chain/) |
+| - [ ] | 12 | [Partition Labels](https://leetcode.com/problems/partition-labels/) |
+| - [ ] | 13 | [Candy](https://leetcode.com/problems/candy/) |
+| - [ ] | 14 | [Patching Array](https://leetcode.com/problems/patching-array/) |
+| - [ ] | 15 | [Minimum Number of Refueling Stops](https://leetcode.com/problems/minimum-number-of-refueling-stops/) |
+
+
+
 
 ## Overall DSA Progress
 
