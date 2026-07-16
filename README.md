@@ -427,7 +427,7 @@ Greedy Algorithms build solutions by making the best local choice at every step,
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [ ] | 1 | [Assign Cookies](https://leetcode.com/problems/assign-cookies/) |
+| - [y] | 1 | [Assign Cookies](https://leetcode.com/problems/assign-cookies/) |
 | - [ ] | 2 | [Can Place Flowers](https://leetcode.com/problems/can-place-flowers/) |
 | - [ ] | 3 | [Lemonade Change](https://leetcode.com/problems/lemonade-change/) |
 | - [ ] | 4 | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) |
@@ -445,15 +445,3 @@ Greedy Algorithms build solutions by making the best local choice at every step,
 
 
 
-
-## Overall DSA Progress
-
-By completing all topics in this roadmap, you will solve **225 carefully selected LeetCode problems**, covering the most important interview patterns asked by top tech companies.
-
-### Difficulty Breakdown
-
-- 🟢 **Easy:** ~60 Problems
-- 🟡 **Medium:** ~125 Problems
-- 🔴 **Hard:** ~40 Problems
-
-These problems are chosen to build strong pattern recognition across arrays, strings, linked lists, trees, graphs, dynamic programming, greedy algorithms, bit manipulation, and advanced data structures, providing comprehensive preparation for coding interviews at FAANG and other leading tech companies.
