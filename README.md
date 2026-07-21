@@ -112,7 +112,7 @@ Binary Search is a divide-and-conquer technique that efficiently searches a mono
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [ ] | 1 | [Binary Search](https://leetcode.com/problems/binary-search/) |
+| - [y]| 1 | [Binary Search](https://leetcode.com/problems/binary-search/) |
 | - [ ] | 2 | [Search Insert Position](https://leetcode.com/problems/search-insert-position/) |
 | - [ ] | 3 | [First Bad Version](https://leetcode.com/problems/first-bad-version/) |
 | - [ ] | 4 | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) |
