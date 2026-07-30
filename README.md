@@ -89,7 +89,7 @@ Stack is a Last-In-First-Out (LIFO) data structure used to solve problems involv
 | - [y] | 1 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) |
 | - [y] | 2 | [Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/) |
 | - [y] | 3 | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) |
-| - [ ] | 4 | [Min Stack](https://leetcode.com/problems/min-stack/) |
+| - [y] | 4 | [Min Stack](https://leetcode.com/problems/min-stack/) |
 | - [ ] | 5 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) |
 | - [ ] | 6 | [Simplify Path](https://leetcode.com/problems/simplify-path/) |
 | - [ ] | 7 | [Decode String](https://leetcode.com/problems/decode-string/) |
