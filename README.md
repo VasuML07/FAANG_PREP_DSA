@@ -323,7 +323,7 @@ Advanced Graph problems combine multiple graph algorithms such as Topological So
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
 | - [y] | 1 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) |
-| - [ ] | 2 | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) |
+| - [y] | 2 | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) |
 | - [ ] | 3 | [House Robber](https://leetcode.com/problems/house-robber/) |
 | - [ ] | 4 | [House Robber II](https://leetcode.com/problems/house-robber-ii/) |
 | - [ ] | 5 | [Delete and Earn](https://leetcode.com/problems/delete-and-earn/) |
