@@ -1,3 +1,6 @@
+### 📈 Progress Bar
+<progress value="29" max="225"></progress> **12.9%** (29 / 225)
+
 # Hashing
 
 ## README
