@@ -1,5 +1,5 @@
 ### 📈 Progress Bar
-<progress value="29" max="225"></progress> **12.9%** (29 / 225)
+<progress value="36" max="225"></progress> **16%** (36 / 225)
 
 # Hashing
 
@@ -271,7 +271,7 @@ Graphs model relationships between entities and are solved using techniques such
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [ ] | 1 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) |
+| - [y] | 1 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) |
 | - [ ] | 2 | [Clone Graph](https://leetcode.com/problems/clone-graph/) |
 | - [ ] | 3 | [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) |
 | - [ ] | 4 | [Course Schedule](https://leetcode.com/problems/course-schedule/) |
@@ -361,7 +361,7 @@ Advanced Graph problems combine multiple graph algorithms such as Topological So
 | - [ ] | 8 | [Edit Distance](https://leetcode.com/problems/edit-distance/) |
 | - [ ] | 9 | [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) |
 | - [ ] | 10 | [Interleaving String](https://leetcode.com/problems/interleaving-string/) |
-| - [ ] | 11 | [Stone Game](https://leetcode.com/problems/stone-game/) |
+| - [y] | 11 | [Stone Game](https://leetcode.com/problems/stone-game/) |
 | - [ ] | 12 | [Cherry Pickup II](https://leetcode.com/problems/cherry-pickup-ii/) |
 | - [ ] | 13 | [Burst Balloons](https://leetcode.com/problems/burst-balloons/) |
 | - [ ] | 14 | [Minimum Score Triangulation of Polygon](https://leetcode.com/problems/minimum-score-triangulation-of-polygon/) |
