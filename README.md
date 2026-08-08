@@ -400,7 +400,7 @@ Bit Manipulation uses binary operations such as AND, OR, XOR, NOT, and bit shift
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [ ] | 1 | [Single Number](https://leetcode.com/problems/single-number/) |
+| - [y] | 1 | [Single Number](https://leetcode.com/problems/single-number/) |
 | - [ ] | 2 | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) |
 | - [ ] | 3 | [Counting Bits](https://leetcode.com/problems/counting-bits/) |
 | - [ ] | 4 | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) |
