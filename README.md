@@ -1,5 +1,5 @@
 ### 📈 Progress Bar
-<progress value="36" max="225"></progress> **16%** (36 / 225)
+<progress value="36" max="225"></progress> **16.45%** (37 / 225)
 
 # Hashing
 
@@ -272,7 +272,7 @@ Graphs model relationships between entities and are solved using techniques such
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
 | - [y] | 1 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) |
-| - [ ] | 2 | [Clone Graph](https://leetcode.com/problems/clone-graph/) |
+| - [y] | 2 | [Clone Graph](https://leetcode.com/problems/clone-graph/) |
 | - [ ] | 3 | [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) |
 | - [ ] | 4 | [Course Schedule](https://leetcode.com/problems/course-schedule/) |
 | - [ ] | 5 | [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) |
