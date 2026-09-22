@@ -1,5 +1,5 @@
 ### 📈 Progress Bar
-<progress value="37" max="225"></progress> **16.89%** (37 / 225)
+<progress value="37" max="225"></progress> **0.00%** (0 / 225)
 
 # Hashing
 
@@ -11,12 +11,12 @@ Hashing is a fundamental DSA technique that enables fast lookups, insertions, de
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Two Sum](https://leetcode.com/problems/two-sum/) |
-| - [y] | 2 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) |
-| - [y] | 3 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/) |
-| - [y] | 4 | [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/) |
-| - [y] | 5 | [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) |
-| - [y] | 6 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) |
+| - [ ] | 1 | [Two Sum](https://leetcode.com/problems/two-sum/) |
+| - [ ] | 2 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) |
+| - [ ] | 3 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/) |
+| - [ ] | 4 | [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/) |
+| - [ ] | 5 | [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) |
+| - [ ] | 6 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) |
 | - [ ] | 7 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) |
 | - [ ] | 8 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) |
 | - [ ] | 9 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) |
@@ -37,11 +37,11 @@ Two Pointers is an optimization technique that uses two indices to efficiently p
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) |
-| - [y] | 2 | [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) |
-| - [y] | 3 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) |
-| - [y] | 4 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/) |
-| - [y] | 5 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) |
+| - [ ] | 1 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) |
+| - [ ] | 2 | [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) |
+| - [ ] | 3 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) |
+| - [ ] | 4 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/) |
+| - [ ] | 5 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) |
 | - [ ] | 6 | [3Sum](https://leetcode.com/problems/3sum/) |
 | - [ ] | 7 | [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/) |
 | - [ ] | 8 | [Sort Colors](https://leetcode.com/problems/sort-colors/) |
@@ -63,12 +63,12 @@ Sliding Window is an optimization technique for efficiently processing contiguou
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/) |
-| - [y] | 2 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) |
-| - [y] | 3 | [Permutation in String](https://leetcode.com/problems/permutation-in-string/) |
-| - [y] | 4 | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) |
-| - [y] | 5 | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) |
-| - [y] | 6 | [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/) |
+| - [ ] | 1 | [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/) |
+| - [ ] | 2 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) |
+| - [ ] | 3 | [Permutation in String](https://leetcode.com/problems/permutation-in-string/) |
+| - [ ] | 4 | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) |
+| - [ ] | 5 | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) |
+| - [ ] | 6 | [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/) |
 | - [ ] | 7 | [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/) |
 | - [ ] | 8 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) |
 | - [ ] | 9 | [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) |
@@ -89,10 +89,10 @@ Stack is a Last-In-First-Out (LIFO) data structure used to solve problems involv
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) |
-| - [y] | 2 | [Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/) |
-| - [y] | 3 | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) |
-| - [y] | 4 | [Min Stack](https://leetcode.com/problems/min-stack/) |
+| - [ ] | 1 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) |
+| - [ ] | 2 | [Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/) |
+| - [ ] | 3 | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) |
+| - [ ] | 4 | [Min Stack](https://leetcode.com/problems/min-stack/) |
 | - [ ] | 5 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) |
 | - [ ] | 6 | [Simplify Path](https://leetcode.com/problems/simplify-path/) |
 | - [ ] | 7 | [Decode String](https://leetcode.com/problems/decode-string/) |
@@ -115,7 +115,7 @@ Binary Search is a divide-and-conquer technique that efficiently searches a mono
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y]| 1 | [Binary Search](https://leetcode.com/problems/binary-search/) |
+| - [ ]| 1 | [Binary Search](https://leetcode.com/problems/binary-search/) |
 | - [ ] | 2 | [Search Insert Position](https://leetcode.com/problems/search-insert-position/) |
 | - [ ] | 3 | [First Bad Version](https://leetcode.com/problems/first-bad-version/) |
 | - [ ] | 4 | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) |
@@ -141,8 +141,8 @@ Linked Lists are fundamental data structures that emphasize pointer manipulation
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) |
-| - [y] | 2 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) |
+| - [ ] | 1 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) |
+| - [ ] | 2 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) |
 | - [ ] | 3 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) |
 | - [ ] | 4 | [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) |
 | - [ ] | 5 | [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/) |
@@ -167,8 +167,8 @@ Trees are hierarchical data structures that form the foundation of many intervie
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) |
-| - [y] | 2 | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) |
+| - [ ] | 1 | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) |
+| - [ ] | 2 | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) |
 | - [ ] | 3 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) |
 | - [ ] | 4 | [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) |
 | - [ ] | 5 | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) |
@@ -193,8 +193,8 @@ Heap (Priority Queue) is a specialized data structure for efficiently retrieving
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) |
-| - [y] | 2 | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) |
+| - [ ] | 1 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) |
+| - [ ] | 2 | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) |
 | - [ ] | 3 | [The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/) |
 | - [ ] | 4 | [Relative Ranks](https://leetcode.com/problems/relative-ranks/) |
 | - [ ] | 5 | [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) |
@@ -219,9 +219,9 @@ Backtracking is a recursive problem-solving technique that explores all possible
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Permutations](https://leetcode.com/problems/permutations/) |
-| - [y] | 2 | [Subsets](https://leetcode.com/problems/subsets/) |
-| - [y] | 3 | [Combinations](https://leetcode.com/problems/combinations/) |
+| - [ ] | 1 | [Permutations](https://leetcode.com/problems/permutations/) |
+| - [ ] | 2 | [Subsets](https://leetcode.com/problems/subsets/) |
+| - [ ] | 3 | [Combinations](https://leetcode.com/problems/combinations/) |
 | - [ ] | 4 | [Combination Sum](https://leetcode.com/problems/combination-sum/) |
 | - [ ] | 5 | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) |
 | - [ ] | 6 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) |
@@ -271,8 +271,8 @@ Graphs model relationships between entities and are solved using techniques such
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) |
-| - [y] | 2 | [Clone Graph](https://leetcode.com/problems/clone-graph/) |
+| - [ ] | 1 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) |
+| - [ ] | 2 | [Clone Graph](https://leetcode.com/problems/clone-graph/) |
 | - [ ] | 3 | [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) |
 | - [ ] | 4 | [Course Schedule](https://leetcode.com/problems/course-schedule/) |
 | - [ ] | 5 | [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) |
@@ -325,8 +325,8 @@ Advanced Graph problems combine multiple graph algorithms such as Topological So
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) |
-| - [y] | 2 | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) |
+| - [ ] | 1 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) |
+| - [ ] | 2 | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) |
 | - [ ] | 3 | [House Robber](https://leetcode.com/problems/house-robber/) |
 | - [ ] | 4 | [House Robber II](https://leetcode.com/problems/house-robber-ii/) |
 | - [ ] | 5 | [Delete and Earn](https://leetcode.com/problems/delete-and-earn/) |
@@ -361,7 +361,7 @@ Advanced Graph problems combine multiple graph algorithms such as Topological So
 | - [ ] | 8 | [Edit Distance](https://leetcode.com/problems/edit-distance/) |
 | - [ ] | 9 | [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) |
 | - [ ] | 10 | [Interleaving String](https://leetcode.com/problems/interleaving-string/) |
-| - [y] | 11 | [Stone Game](https://leetcode.com/problems/stone-game/) |
+| - [ ] | 11 | [Stone Game](https://leetcode.com/problems/stone-game/) |
 | - [ ] | 12 | [Cherry Pickup II](https://leetcode.com/problems/cherry-pickup-ii/) |
 | - [ ] | 13 | [Burst Balloons](https://leetcode.com/problems/burst-balloons/) |
 | - [ ] | 14 | [Minimum Score Triangulation of Polygon](https://leetcode.com/problems/minimum-score-triangulation-of-polygon/) |
@@ -403,7 +403,7 @@ Bit Manipulation uses binary operations such as AND, OR, XOR, NOT, and bit shift
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Single Number](https://leetcode.com/problems/single-number/) |
+| - [ ] | 1 | [Single Number](https://leetcode.com/problems/single-number/) |
 | - [ ] | 2 | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) |
 | - [ ] | 3 | [Counting Bits](https://leetcode.com/problems/counting-bits/) |
 | - [ ] | 4 | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) |
@@ -430,7 +430,7 @@ Greedy Algorithms build solutions by making the best local choice at every step,
 
 | Status | # | LeetCode Problem |
 |--------|---|------------------|
-| - [y] | 1 | [Assign Cookies](https://leetcode.com/problems/assign-cookies/) |
+| - [ ] | 1 | [Assign Cookies](https://leetcode.com/problems/assign-cookies/) |
 | - [ ] | 2 | [Can Place Flowers](https://leetcode.com/problems/can-place-flowers/) |
 | - [ ] | 3 | [Lemonade Change](https://leetcode.com/problems/lemonade-change/) |
 | - [ ] | 4 | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) |
