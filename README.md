@@ -1,5 +1,5 @@
 ### 📈 Progress Bar
-<progress value="37" max="225"></progress> **1.34%** (3 / 225)
+<progress value="37" max="225"></progress> **1.78%** (4 / 225)
 
 # Hashing
 
@@ -14,7 +14,7 @@ Hashing is a fundamental DSA technique that enables fast lookups, insertions, de
 | - [y] | 1 | [Two Sum](https://leetcode.com/problems/two-sum/) |
 | - [y] | 2 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) |
 | - [y] | 3 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/) |
-| - [ ] | 4 | [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/) |
+| - [y] | 4 | [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/) |
 | - [ ] | 5 | [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) |
 | - [ ] | 6 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) |
 | - [ ] | 7 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) |
